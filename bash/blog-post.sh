@@ -13,16 +13,53 @@ dpost=$(date '+%Y-%m-%d %H:%M:%S %z')
 dout=$(date '+%Y-%m-%d')
 
 if [[ $# -eq 0 ]]; then
-    echo "Please enter the title for the blog post."
+    read -p "Please define the blog posts filename with dashses (ex. first-post): " filename
+    echo "Blog Topics"
+    echo "-----------"
+    echo "1.) business"
+    echo "2.) tech"
+    read -p "Please select the blog posts topic [1-2]: " blogtopic
+    if [[ $blogtopic -eq 1 ]]; then
+        blogtopic="business"
+    elif [[ $blogtopic -eq 2 ]]; then
+        blogtopic="tech"
+    else
+        echo "Please select a valid topic."
+        exit 1
+    fi
+    read -p "What is the blog posts title?: " blogtitle
+    #exit 1
+elif [[ $# -eq 1 ]]; then
+    filename=$1
+    echo "Blog Topics"
+    echo "-----------"
+    echo "1.) business"
+    echo "2.) tech"
+    read -p "Please select the blog posts topic [1-2]: " blogtopic
+    if [[ $blogtopic -eq 1 ]]; then
+        blogtopic="business"
+    elif [[ $blogtopic -eq 2 ]]; then
+        blogtopic="tech"
+    else
+        echo "Please select a valid topic."
+        exit 1
+    fi
+    read -p "What is the blog posts title?: " blogtitle
+else
+    echo "Please check file name and use dashes (-) instead of spaces for file name."
     exit 1
 fi
 
-cat > "$dout-$1.md" << EOF
+blogdir=$HOME'/development/blog/blog/'$blogtopic'/_posts/'
+
+#cat > "$dout-$filename.md" << EOF
+cat > "$blogdir/$dout-$filename.md" << EOF
 ---
 layout: post
-title: 
-date:   $dpost
-category: 
+title:   "$blogtitle"
+date:    $dpost
+category: $blogtopic
 ---
 
 EOF
+
