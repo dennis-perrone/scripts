@@ -13,14 +13,14 @@ dpost=$(date '+%Y-%m-%d %H:%M:%S %z')
 dout=$(date '+%Y-%m-%d')
 
 if [[ $# -eq 0 ]]; then
-    read -p "Please define the blog posts filename with dashses (ex. first-post): " filename
+    read -p "Please define the blog posts filename with dashses and no extension (ex. first-post): " filename
     echo "Blog Topics"
     echo "-----------"
-    echo "1.) business"
+    echo "1.) personal"
     echo "2.) tech"
     read -p "Please select the blog posts topic [1-2]: " blogtopic
     if [[ $blogtopic -eq 1 ]]; then
-        blogtopic="business"
+        blogtopic="personal"
     elif [[ $blogtopic -eq 2 ]]; then
         blogtopic="tech"
     else
@@ -33,11 +33,11 @@ elif [[ $# -eq 1 ]]; then
     filename=$1
     echo "Blog Topics"
     echo "-----------"
-    echo "1.) business"
+    echo "1.) personal"
     echo "2.) tech"
     read -p "Please select the blog posts topic [1-2]: " blogtopic
     if [[ $blogtopic -eq 1 ]]; then
-        blogtopic="business"
+        blogtopic="personal"
     elif [[ $blogtopic -eq 2 ]]; then
         blogtopic="tech"
     else
@@ -50,7 +50,7 @@ else
     exit 1
 fi
 
-blogdir=$HOME'/development/blog/blog/'$blogtopic'/_posts/'
+blogdir=$HOME'/development/blog/_posts/'$blogtopic'/'
 
 #cat > "$dout-$filename.md" << EOF
 cat > "$blogdir/$dout-$filename.md" << EOF
