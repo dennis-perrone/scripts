@@ -28,6 +28,7 @@ if [[ $# -eq 0 ]]; then
         exit 1
     fi
     read -p "What is the blog posts title?: " blogtitle
+    read -p "Please specifiy the tags for the blog post (separated by commas): " blogtags
     #exit 1
 elif [[ $# -eq 1 ]]; then
     filename=$1
@@ -45,6 +46,7 @@ elif [[ $# -eq 1 ]]; then
         exit 1
     fi
     read -p "What is the blog posts title?: " blogtitle
+    read -p "Please specifiy the tags for the blog post (separated by commas): " blogtags
 else
     echo "Please check file name and use dashes (-) instead of spaces for file name."
     exit 1
@@ -59,6 +61,7 @@ layout: post
 title:   "$blogtitle"
 date:    $dpost
 category: $blogtopic
+tags: [${blogtags[*]}]
 ---
 
 EOF
