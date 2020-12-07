@@ -8,8 +8,10 @@
 # GitHub : www.github.com/dennis-perrone
 ####################################################################
 
-array=(1,2,3)
 read -p "Please enter tags (separated by comma): " blogtags
 
-echo ${array[*]}
 echo ${blogtags[*]}
+
+for f in ${blogtags[@]}; do
+    [[ -f "./$f" ]] || echo "$f: not found"
+done
