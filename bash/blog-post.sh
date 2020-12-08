@@ -54,7 +54,6 @@ fi
 
 blogdir=$HOME'/development/blog/_posts/'$blogtopic'/'
 
-#cat > "$dout-$filename.md" << EOF
 cat > "$blogdir/$dout-$filename.md" << EOF
 ---
 layout: post

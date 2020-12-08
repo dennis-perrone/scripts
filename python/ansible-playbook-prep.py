@@ -1,10 +1,11 @@
 #!/usr/bin/python
 
 import os
+from pathlib import Path
 
 playbook_name = input('New playbook name: ')
-playbook = "/home/sparky/documents/ansible/playbooks/" + playbook_name
-
+home = str(Path.home())
+playbook = f"{home}/documents/ansible/playbooks/" + playbook_name
 
 os.makedirs(playbook)
 os.chdir(playbook)
