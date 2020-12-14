@@ -50,11 +50,18 @@ else
     exit 1
 fi
 
+<<<<<<< HEAD
 blogfinal=$HOME'/development/blog/_posts/'$blogtopic'/'
 blogdraft=$HOME'/development/blog/_drafts/'
 
 #cat > "$blogdir/$dout-$filename.md" << EOF
 cat > "$blogdraft/$dout-$filename.md" << EOF
+=======
+finalblog=$HOME'/development/blog/_posts/'$blogtopic'/'
+draftblog=$HOME'/development/blog/_drafts/'$blogtopic''
+
+cat > "$draftblog/$dout-$filename.md" << EOF
+>>>>>>> 61d29019237b270ad378119c715a55ce5aa27ed8
 ---
 layout: single
 title:   "$blogtitle"
