@@ -12,8 +12,8 @@
 dpost=$(date '+%Y-%m-%d %H:%M:%S %z')
 dout=$(date '+%Y-%m-%d')
 
-if [[ $# -eq 0 ]]; then
-    read -p "Please define the blog posts filename with dashses and no extension (ex. first-post): " filename
+function topic_choice(){
+    echo ""
     echo "Blog Topics"
     echo "-----------"
     echo "1.) personal"
@@ -27,41 +27,29 @@ if [[ $# -eq 0 ]]; then
         echo "Please select a valid topic."
         exit 1
     fi
-    read -p "What is the blog posts title?: " blogtitle
-    #exit 1
-elif [[ $# -eq 1 ]]; then
-    filename=$1
-    echo "Blog Topics"
-    echo "-----------"
-    echo "1.) personal"
-    echo "2.) tech"
-    read -p "Please select the blog posts topic [1-2]: " blogtopic
-    if [[ $blogtopic -eq 1 ]]; then
-        blogtopic="personal"
-    elif [[ $blogtopic -eq 2 ]]; then
-        blogtopic="tech"
+}
+
+function post_stage(){
+    echo ""
+    echo "Blog Stage"
+    echo "----------"
+    echo "1.) staging (_drafts)"
+    echo "2.) production (_posts)"
+    read -p "Please select the post stage [1-2]: " blogstage
+    if [[ $blogstage -eq 1 ]]; then
+        blogstage="_drafts"
+    elif
+        [[ $blogstage -eq 2 ]]; then
+        blogstage="_posts"
     else
-        echo "Please select a valid topic."
-        exit 1
+        echo "Please select a valid blog stage"
+        exit
     fi
-    read -p "What is the blog posts title?: " blogtitle
-else
-    echo "Please check file name and use dashes (-) instead of spaces for file name."
-    exit 1
-fi
+}
 
-<<<<<<< HEAD
-blogfinal=$HOME'/development/blog/_posts/'$blogtopic'/'
-blogdraft=$HOME'/development/blog/_drafts/'
+function blog_header(){
 
-#cat > "$blogdir/$dout-$filename.md" << EOF
-cat > "$blogdraft/$dout-$filename.md" << EOF
-=======
-finalblog=$HOME'/development/blog/_posts/'$blogtopic'/'
-draftblog=$HOME'/development/blog/_drafts/'$blogtopic''
-
-cat > "$draftblog/$dout-$filename.md" << EOF
->>>>>>> 61d29019237b270ad378119c715a55ce5aa27ed8
+cat > "$HOME/development/blog/$blogstage/$blogtopic/$dout-$filename.md" << EOF
 ---
 layout: single
 title:   "$blogtitle"
@@ -73,3 +61,21 @@ author: Dennis Perrone
 
 EOF
 
+}
+
+if [[ $# -eq 0 ]]; then
+    read -p "Please define the blog posts filename with dashses and no file extension (ex. first-post): " filename
+    post_stage
+    topic_choice
+    read -p "What is the blog posts title?: " blogtitle
+    blog_header
+elif [[ $# -eq 1 ]]; then
+    filename=$1
+    post_stage
+    topic_choice
+    read -p "What is the blog posts title?: " blogtitle
+    blog_header
+else
+    echo "Please check file name and use dashes (-) instead of spaces for file name."
+    exit 1
+fi
