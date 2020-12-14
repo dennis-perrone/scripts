@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+####################################################################
+# Script Name : atbswp.py
+# Description : Just running through the ATBSWP book.
+# Args :
+# Author : Dennis Perrone 
+# GitHub : www.github.com/dennis-perrone
+####################################################################
+
+def hello(name):
+    print('Hello, '+name)
+
+hello('DJ'
