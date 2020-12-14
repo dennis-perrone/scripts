@@ -50,15 +50,18 @@ else
     exit 1
 fi
 
-blogdir=$HOME'/development/blog/_posts/'$blogtopic'/'
+blogfinal=$HOME'/development/blog/_posts/'$blogtopic'/'
+blogdraft=$HOME'/development/blog/_drafts/'
 
-cat > "$blogdir/$dout-$filename.md" << EOF
+#cat > "$blogdir/$dout-$filename.md" << EOF
+cat > "$blogdraft/$dout-$filename.md" << EOF
 ---
-layout: post
+layout: single
 title:   "$blogtitle"
 date:    $dpost
 category: $blogtopic
 tags: [ ]
+author: Dennis Perrone
 ---
 
 EOF
