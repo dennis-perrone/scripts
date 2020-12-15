@@ -57,6 +57,7 @@ date:    $dpost
 category: $blogtopic
 tags: [ ]
 author: Dennis Perrone
+classes: wide
 ---
 
 EOF
