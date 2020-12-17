@@ -72,13 +72,19 @@ def post_category():
     print ()
     print ("Blog Categories")
     print ("---------------")
-    print ("1.) personal")
-    print ("2.) technology")
+    print ("1.) general")
+    print ("2.) personal")
+    print ("3.) professional")
+    print ("4.) technology")
     print ()
     category = input("Please select the blog posts category [1-2]: ")
     if category == "1":
-        blogcat = "personal"
+        blogcat = "general"
     elif category == "2":
+        blogcat = "personal"
+    elif category == "3":
+        blogcat = "professional"
+    elif category == "4":
         blogcat = "tech"
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
