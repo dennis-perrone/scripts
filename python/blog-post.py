@@ -72,18 +72,18 @@ def post_category():
     print ()
     print ("Blog Categories")
     print ("---------------")
-    print ("1.) general")
-    print ("2.) personal")
-    print ("3.) professional")
+    print ("1.) career")
+    print ("2.) general")
+    print ("3.) personal")
     print ("4.) technology")
     print ()
     category = input("Please select the blog posts category [1-2]: ")
     if category == "1":
-        blogcat = "general"
+        blogcat = "career"
     elif category == "2":
-        blogcat = "personal"
+        blogcat = "general"
     elif category == "3":
-        blogcat = "professional"
+        blogcat = "personal"
     elif category == "4":
         blogcat = "tech"
     else:
@@ -116,7 +116,7 @@ def post_stage():
 def post_header():
     filename = f'{home}/development/blog/{blogstage}/{blogcat}/{dout}-{post_name}.md'
     f = open(filename,"w+")
-    filecontent = ["---\n","layout:   single","\n","title:    ",\
+    filecontent = ["---\n","layout:   post","\n","title:    ",\
             post_title,"\n","date:     ",dpost,"\n","category: ",\
             blogcat,"\n","tags: [ ]\n","author:   Dennis Perrone\n",\
             "excerpt:  \n","classes:  wide\n","---\n"]
