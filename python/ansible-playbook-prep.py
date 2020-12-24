@@ -13,12 +13,6 @@ import os
 import sys
 
 
-#from pathlib import Path
-#playbook_name = input('New playbook name: ')
-#home = str(Path.home())
-#playbook = f"{home}/documents/ansible/playbooks/" + playbook_name
-
-
 if os.geteuid() == 0:
     sys.exit ("This sript should not be executed as root.\n"
               "Please re-run this script as a normal user.")
