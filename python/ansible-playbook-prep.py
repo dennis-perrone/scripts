@@ -38,10 +38,15 @@ for m in main_folders:
 
 for f in files:
     os.mknod(f)
+    file = open(f,"w+")
+    filecontent = ["---\n\n"]
+    file.writelines(filecontent)
+    file.close()
 
 os.chdir(playbook + '/roles/')
 
 while True:
+    print ()
     print ('Please enter the desired role name (Press [ENTER] to exit): ')
     role = input()
     if role == '':
