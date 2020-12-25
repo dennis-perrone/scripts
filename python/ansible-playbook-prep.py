@@ -12,7 +12,6 @@
 import os
 import sys
 
-
 if os.geteuid() == 0:
     sys.exit ("This sript should not be executed as root.\n"
               "Please re-run this script as a normal user.")
@@ -31,10 +30,18 @@ else:
 main_folders = ['group_vars', 'host_vars', 'library', \
                 'module_utils', 'filter_plugins', 'roles']
 roles = []
-files = ['production', 'staging', 'site.yml']
+inventory = ['production', 'staging']
+files = ['site.yml']
 
 for m in main_folders:
     os.makedirs(os.path.join(playbook, m))
+
+for f in inventory:
+    os.mknod(f)
+    file = open(f,"w+")
+    filecontent = ["# This is the " + f + " inventory file.\n\n"]
+    file.writelines(filecontent)
+    file.close()
 
 for f in files:
     os.mknod(f)
