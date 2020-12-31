@@ -77,7 +77,7 @@ def post_category():
     print ("3.) personal")
     print ("4.) technology")
     print ()
-    category = input("Please select the blog posts category [1-2]: ")
+    category = input("Please select the blog posts category [1-4]: ")
     if category == "1":
         blogcat = "career"
     elif category == "2":
