@@ -116,8 +116,8 @@ def post_stage():
 def post_header():
     filename = f'{home}/development/blog/{blogstage}/{blogcat}/{dout}-{post_name}.md'
     f = open(filename,"w+")
-    filecontent = ["---\n","layout:   post","\n","title:    ",\
-            post_title,"\n","date:     ",dpost,"\n","category: ",\
+    filecontent = ["---\n","layout:   post","\n","title:    \"",\
+            post_title,"\"\n","date:     ",dpost,"\n","category: ",\
             blogcat,"\n","tags: [ ]\n","author:   Dennis Perrone\n",\
             "excerpt:  \n","classes:  wide\n","---\n"]
     f.writelines(filecontent)
