@@ -2,15 +2,45 @@
 
 import os
 import sys
-date = '20210601'
-#from git import Repo
+import git
+from git import Repo
+from pathlib import Path
+from datetime import date
+
+
+date = date.today().isoformat()
+home = str(Path.home())
+repo = git.Repo('test-repo')
+#repo = git.Repo(f'{home}/development/notes')
 
 if __name__ == '__main__':
-    #s = sys.argv[1]
-    #file_ext = s.split('.')
-    #print (file_ext[1])
-    gh_site = "https://www.github.com/dennis-perrone"
-    os.system(f'git clone {gh_site}/test-repo.git ~/downloads/test-repo')
-    os.system(f'cd ~/downloads/test-repo')
-    #os.chdir(f'~/downloads/test-repo')
-    os.system(f'git checkout -b {date}')
+
+    #if os.path.isdir("/home/sparky/downloads/test-repo/"):
+    #    print ("The repository has already been cloned.")
+    #else:
+    #    git.Repo.clone_from('git@github.com:dennis-perrone/test-repo', 'test-repo')
+    repo = git.Repo('test-repo')
+
+    if repo.is_dirty(untracked_files=True):
+        print ("Changes detected")
+        repo.index.add(['test03.txt'])
+        repo.index.commit('Updated documentation')
+    else:
+        print ("All clean")
+
+    for branch in repo.branches:
+        print (branch)
+    
+    repo.git.checkout('main')
+    repo.git.branch(f'{date}')
+    repo.git.checkout(f'{date}')
+    #main = self.repo.heads.main
+    #repo.git.pull('origin', 'main')
+    repo.git.push('--set-upstream', 'origin', f'{date}')
+    repo.git.pull('origin', 'main')
+    repo.git.checkout('main')
+
+
+
+    
+    #git@github.com:dennis-perrone/test-repo.git
