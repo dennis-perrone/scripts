@@ -21,5 +21,8 @@ home = str(Path.home())
 config_dir = f'{home}/.config'
 date = date.today().isoformat()
 
+# write config files to .config/hamlog/hamlog.conf
+# write log files to /var/log/hamlog.log
+
 print (home)
 print (config_dir)
