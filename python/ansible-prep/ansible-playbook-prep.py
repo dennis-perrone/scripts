@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 
-####################################################################
-# Script Name : ansible-playbook-prep.py
-# Description : A simple script to create a skelton playbook and the
-#               desired roles.
-# Args :
-# Author : Dennis Perrone 
-# GitHub : www.github.com/dennis-perrone
-####################################################################
+# =========================================================
+# Author:  Dennis Perrone
+# Github:  https://www.github.com/dennis-perrone
+# Purpose: Create a skeleton Ansible playbook.
+# =========================================================
 
 import os
 import sys

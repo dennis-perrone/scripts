@@ -10,8 +10,6 @@
 # Variables
 # =========================================================
 playbook_dir=$HOME/documents/ansible/playbooks
-#playbook_name=()
-#ansible_working_dir=$playbook_dir/$playbook_name
 roles_dir=$playbook_dir/$playbook_name/roles
 role_var=()
 inventory_files=("staging" "production")
