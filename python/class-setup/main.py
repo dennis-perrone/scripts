@@ -94,7 +94,7 @@ def discussion_template():
     print(f'All discussion templates have been created for {class_name}.')
 
 def directory_structure():
-    skel_dirs = ['01-syllabus', '02-discussions', '03-notes', '04-projects']
+    skel_dirs = ['01-syllabus', '02-discussions', '03-notes', '04-assignments']
 
     if not os.path.exists(class_dir):
         os.makedirs(class_dir)
