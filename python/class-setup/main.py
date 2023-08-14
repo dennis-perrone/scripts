@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 # Author: Dennis Perrone
 # Github: https://www.github.com/dennis-perrone
@@ -9,7 +9,7 @@ import sys
 import getpass
 from pathlib import Path
 from datetime import date
-#import platform
+# #import platform
 import docx
 
 weeks = int(10)
