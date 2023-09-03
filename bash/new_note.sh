@@ -10,7 +10,7 @@ fi
 note_string=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 note_topic="${note_string// /_}"
 #new_note=$HOME/wiki/$(date +%Y-%m-%d)_$note_topic.md
-new_note=$HOME/wiki/$note_topic.md
+new_note=$HOME/wiki/public/$note_topic.md
 
 if [[ ! -f $new_note ]]; then
   echo "# $1"> $new_note
@@ -23,6 +23,6 @@ else
   echo "$new_note already exists ..."
 fi
 
-echo "- [$1]($note_topic.md)" >> ~/wiki/index.md
+echo "- [$1]($note_topic.md)" >> ~/wiki/public/index.md
 
 nvim -c "norm Go-" $new_note

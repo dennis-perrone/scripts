@@ -10,7 +10,7 @@ fi
 mtg_string=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 mtg_topic="${mtg_string// /_}"
 #mtg_topic="${1// /_}"
-new_mtg=$HOME/wiki/meeting-notes/$(date +%Y-%m-%d)_$mtg_topic.md
+new_mtg=$HOME/wiki/private/meeting-notes/$(date +%Y-%m-%d)_$mtg_topic.md
 
 if [[ ! -f $new_mtg ]]; then
   echo "# $1"> $new_mtg
@@ -27,6 +27,6 @@ else
   echo "$new_mtg already exists ..."
 fi
 
-echo "- [$(date +%Y-%m-%d) $1](/meeting-notes/$(date +%Y-%m-%d)_$mtg_topic.md)" >> ~/wiki/meeting-notes/index.md
+echo "- [$(date +%Y-%m-%d) $1](/meeting-notes/$(date +%Y-%m-%d)_$mtg_topic.md)" >> ~/wiki/private/meeting-notes/index.md
 
 nvim -c "norm Go-" $new_mtg
