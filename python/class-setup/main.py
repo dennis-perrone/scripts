@@ -16,12 +16,13 @@ weeks = int(10)
 current_user = getpass.getuser()
 home = str(Path.home())
 date = date.today().isoformat()
+header = "Class Directory Creation Script"
 
 #print (platform.system())
 
-print ('-'*60)
-print ("Class Directory Creation Script")
-print ('-'*60)
+print ('-'*len(header))
+print (header)
+print ('-'*len(header))
 semester = input("What semester is this? ex. Fall 2022 would be F2022: ").upper()
 class_name = input("Which class is this for? ex. IT510: ").upper()
 
@@ -37,7 +38,7 @@ def discussion_template():
     discussions = int(input ("How many weekly discussions are required?: "))
     responses = int(input ("How many responses are required per discussion?: "))
     print ()
-    
+ 
     doc = docx.Document()
 
     styles = doc.styles
