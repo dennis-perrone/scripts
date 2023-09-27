@@ -1,0 +1,13 @@
+codium
+@Virtualization
+podman-compose
+podman
+dnf-plugin-tracer
+python3-virtualenvwrapper
+cronie
+tlp
+neovim
+ripgrep
+qpdf
+keepassxc
+brave

@@ -1,0 +1,3 @@
+io.podman_desktop.PodmanDesktop
+org.signal.Signal
+com.mattjakeman.ExtensionManager

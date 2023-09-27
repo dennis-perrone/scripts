@@ -1,0 +1,7 @@
+[brave]
+baseurl = https://brave-browser-rpm-release.s3.brave.com/$basearch
+enabled = 1
+exclude = 
+gpgcheck = 1
+gpgkey = https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+name = brave browser

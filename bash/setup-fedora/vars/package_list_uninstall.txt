@@ -1,0 +1,4 @@
+cheese
+gnome-tour
+libreoffice
+gnome-boxes
