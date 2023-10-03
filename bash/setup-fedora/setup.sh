@@ -17,4 +17,4 @@ echo "Installing Gnome extensions ..."
 source ./scripts/gnome_extensions.sh
 
 echo "Configuring Gnome settings ..."
-source ./scripts/gnome_settings.sh"
+source ./scripts/gnome_settings.sh

@@ -21,3 +21,8 @@ for i in ${extensions[@]}; do
     gnome-extensions enable ${EXTENSION_ID}
     rm ${EXTENSION_ID}.zip
 done
+
+# for i in ${extensions[@]}; do
+#     EXTENSION_ID=$(curl -s $i | grep -oP 'data-uuid="\K[^"]+')
+#     gnome-extensions enable $EXTENSION_ID
+# done
