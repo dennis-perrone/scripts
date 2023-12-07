@@ -13,7 +13,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak update
 
 # Read the list of packages from the text file
-PACKAGES=$(cat vars/flatpaks.txt)
+PACKAGES=$(cat vars/flatpak_list.txt)
 
 # Install the packages using flatpak
 for PACKAGE in $PACKAGES; do

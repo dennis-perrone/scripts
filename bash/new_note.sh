@@ -9,20 +9,32 @@ fi
 
 note_string=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 note_topic="${note_string// /_}"
-#new_note=$HOME/wiki/$(date +%Y-%m-%d)_$note_topic.md
 new_note=$HOME/wiki/public/$note_topic.md
 
-if [[ ! -f $new_note ]]; then
+new_date () {
+  date "+%Y-%m-%d %H:%M:%S %Z"
+}
+
+create_note () {
   echo "# $1"> $new_note
   echo "" >> $new_note
-  echo "Created: $(date +%Y-%m-%d)" >> $new_note
+  echo "- Created:  $(new_date)" >> $new_note
+  echo "- Modified: $(new_date)" >> $new_note
   echo "" >> $new_note
   echo "## Notes" >> $new_note
   echo "" >> $new_note
+}
+
+append_note () {
+  sed -i "/- Modified: /c\- Modified: $(new_date)" $new_note
+}
+
+if [[ ! -f $new_note ]]; then
+  create_note "$1"
+  echo "- [$1]($note_topic.md)" >> ~/wiki/public/index.md
 else
   echo "$new_note already exists ..."
+  append_note
 fi
-
-echo "- [$1]($note_topic.md)" >> ~/wiki/public/index.md
 
 nvim -c "norm Go-" $new_note
